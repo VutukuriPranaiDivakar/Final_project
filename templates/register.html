@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="static/styles/index.css">
+    <title>Sign-up</title>
+</head>
+
+<body>
+    <div class="login-form">
+        <form action="/savedetails" method="post" name="register_form">
+            <h1>Registration</h1>
+            <div class="content">
+                <div class="input-field">
+
+                    <input type="text" placeholder="username" autocomplete="nope" name="username" required>
+                </div>
+                <div class="input-field">
+                    <!-- <input type="password" placeholder="Password" autocomplete="new-password" name="password" required> -->
+                    <input type="password" id="psw" name="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@,$,!,#,%,^,&]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter and one special character and at least 8 or more characters"
+                        required/>
+                </div>
+                <div class="show_pass">
+                    <input type="checkbox" onclick="myFunction()">Show Password
+                </div>
+                <div class="set_mar">
+
+                </div>
+                <div class="input-field">
+                    <input type="email" placeholder="Email" autocomplete="nope" name="email" pattern="(^[a-zA-Z0-9]+@gmail\.com)||(^[a-zA-Z0-9]+@acoe\.edu\.in)" required>
+                </div>
+                <div class="input-field">
+                    <input type="text" placeholder="phone" autocomplete="nope" onkeypress="return ((event.charCode !=8 && event.charCode ==0 )|| (event.charCode >= 48 && event.charCode <= 57))" name="phone" minlength="10" maxlength="10" required />
+                    <!-- <input type="text" placeholder="phone" autocomplete="nope" name="phone" required> -->
+                </div>
+                <br>
+
+                <div class="action">
+                    <button>Register</button>
+                </div>
+                <br>
+                <div class="ask">
+                    <a href="/login">
+                        <p><u>Already have an account ? <b> Login here </b></u></p>
+                    </a>
+                </div>
+
+        </form>
+        </div>
+
+        <script>
+            function myFunction() {
+                var x = document.getElementById("psw");
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+        </script>
+
+
+</body>
+
+</html>

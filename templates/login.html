@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <!-- <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'> -->
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/index.css') }}"> -->
+    <link rel="stylesheet" type="text/css" href="static/styles/index.css">
+    <!-- <link rel="stylesheet" href="C:\4-1\final year project\project work\login\simple-login-page-in-html\simple-login-page-in-html\static\style.css" type="text/css"> -->
+
+</head>
+
+<body>
+
+    <!-- partial:index.partial.html -->
+    <div class="login-form">
+        <form action="/valid_login" method="post">
+            <h1>Login</h1>
+            <div class="content">
+                <div class="input-field">
+                    <input type="text" placeholder="username" autocomplete="nope" name="username" required>
+                </div>
+                <div class="input-field">
+                    <input type="password" id="psw" placeholder="Password" autocomplete="new-password" name="password" required>
+                </div>
+                <div class="show_pass">
+                    <input type="checkbox" onclick="myFunction()">Show Password
+                </div>
+                <h1 class="info" class="link">{{info}}</h1>
+                <br>
+
+                <!-- <a href="#" class="link">Forgot Your Password?</a> -->
+
+                <div class="action">
+                    <a href="/register" class="btn"> Register </a>
+                    <!-- onMouseOver="this.style.color='red' " onMouseOut="this.style.color='black'" -->
+                    <!-- <a href="https://www.google.com/" class="btn"> Register </a> -->
+                    <!-- <button href="google.com">Register</button> -->
+                    <button>Sign in</button>
+                </div>
+            </div>
+        </form>
+        <!-- <form action="/savedetails" method="post">
+            <h1>registration</h1>
+            <div class="content">
+                <div class="input-field">
+                    <input type="text" placeholder="username" autocomplete="nope" name="username">
+                </div>
+                <div class="input-field">
+                    <input type="password" placeholder="Password" autocomplete="new-password" name="password">
+                </div>
+                <div class="input-field">
+                    <input type="email" placeholder="Email" autocomplete="nope" name="email">
+                </div>
+                <div class="input-field">
+                    <input type="text" placeholder="phone" autocomplete="nope" name="phone">
+                </div>
+
+            </div>
+            <div class="action">
+                <button>Register</button>
+            </div> -->
+
+        </form>
+        <!-- <h1 class="info" class="link">{{info}}</h1> -->
+
+    </div>
+    <!-- partial -->
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("psw");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
+
+
+
+</body>
+
+</html>

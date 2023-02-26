@@ -1,0 +1,24 @@
+{
+    "name": "demo",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+
+        "build-css": "tailwindcss build -i src/style.css -o static/styles/style.css --watch"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Teja112200/Demo.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Teja112200/Demo/issues"
+    },
+    "homepage": "https://github.com/Teja112200/Demo#readme",
+    "dependencies": {
+        "tailwindcss": "^3.2.7"
+    }
+}

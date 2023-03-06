@@ -121,7 +121,7 @@ app.secret_key = os.urandom(24)
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USERNAME'] = 'takeyourpics9@gmail.com'
-app.config['MAIL_PASSWORD'] = 'swksikbyzkrhlnne'
+app.config['MAIL_PASSWORD'] = 'qecphzcyaawcjtkc'
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 
@@ -159,7 +159,6 @@ def forgot_pass():
                         'Password Request', sender="no-reply@gmail.com", recipients=[email])
                     msg.body = 'Your Password Is '+r[0][1]
                     mail.send(msg)
-
                     msg1 = "Password has been sent to your Mail , Please check your Mail"
                     return render_template("forgot_pass.html", msg=msg1)
             except:
@@ -195,10 +194,12 @@ def saveDetails():
                 # con.execute('CREATE TABLE students (username TEXT, password TEXT, Email TEXT, phone TEXT)')
                 # print("Table created successfully")
                 # con.close()
+
                 cur.execute("INSERT into student_data (username,password,email,phone) values (?,?,?,?)",
                             (new_user, new_pwd, email, phone))
                 con.commit()
                 msg = "Student successfully Added now you can login with your credentials"
+
         except:
             con.rollback()
             msg = "Student already exist"

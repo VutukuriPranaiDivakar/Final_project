@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="static/styles/index.css">
+    <title>Sign-up</title>
+</head>
+
+<body>
+    <div class="login-form">
+        <form action="/forgot_pass" method="post" name="forgot_pass">
+            <h1>Forgot Password</h1>
+            <br>
+            <div class="content">
+
+                <div class="input-field">
+                    <input type="email" placeholder="Email" autocomplete="nope" name="email" pattern="(^[a-zA-Z0-9]+@gmail\.com)||(^[a-zA-Z0-9]+@acoe\.edu\.in)" required>
+                </div>
+
+                <br>
+
+                <div class="action">
+                    <button>ENTER</button>
+                </div>
+                <br>
+                <div class="ask">
+                    {{msg}}
+                </div>
+            </div>
+            <a class="ask" href="/login">
+                <p><u> <b> Return to Login page </b></u></p>
+                <br>
+            </a>
+
+        </form>
+
+
+    </div>
+
+
+</body>
+
+</html>

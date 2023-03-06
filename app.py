@@ -13,6 +13,7 @@ from keras.layers import Dense
 from keras.models import Sequential
 from sklearn.preprocessing import MinMaxScaler
 
+from flask_mail import Mail, Message
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
@@ -116,6 +117,57 @@ def predictOpen(openPrice):
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
+
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USERNAME'] = 'takeyourpics9@gmail.com'
+app.config['MAIL_PASSWORD'] = 'swksikbyzkrhlnne'
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+
+
+mail = Mail(app)
+
+
+@app.route('/forgot_pass')
+def ind():
+    return render_template('forgot_pass.html')
+
+
+@app.route('/forgot_pass', methods=['GET', 'POST'])
+def forgot_pass():
+    msg1 = ""
+
+    try:
+
+        if request.method == 'POST':
+
+            email = request.form["email"]
+
+            con = sqlite3.connect("project_db.db")
+            cur = con.cursor()
+
+            cur.execute(
+                "SELECT * FROM student_data WHERE email ='"+email+"' ")
+            r = cur.fetchall()
+            print(r)
+
+            try:
+
+                if (r != 0):
+                    msg = Message(
+                        'Password Request', sender="no-reply@gmail.com", recipients=[email])
+                    msg.body = 'Your Password Is '+r[0][1]
+                    mail.send(msg)
+
+                    msg1 = "Password has been sent to your Mail , Please check your Mail"
+                    return render_template("forgot_pass.html", msg=msg1)
+            except:
+                msg1 = "Mail-id Not Found"
+                return render_template("forgot_pass.html", msg=msg1)
+
+    except:
+        return "problem with db connetion"
 
 
 @app.route('/')
